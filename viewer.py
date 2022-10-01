@@ -2,7 +2,7 @@
   2 import pydicom
   3 import pydicom.data
   4 
-  5 def viewer(base, file):
+  5 def dcm_viewer(base, file):
   6         base = r"{}".format(base)
   7         filename = pydicom.data.data_manager.get_files(base, file)[0]
   8         ds = pydicom.dcmread(filename)
