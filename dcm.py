@@ -2,14 +2,20 @@ import matplotlib.pyplot as plt
 import pydicom.data
 import os
 import tkinter as tk
+import pathlib
 
-def dcm_viewer(path: str):
+# Relative path is case insensitive! (Could cause errors if there are more than one file of the same name in the current working directory)
+def viewer(path: str):
 	path_components = os.path.split(path)
 	if path_components[1] == "":
 		return
 	if path_components[0] == "":
 		base = os.getcwd()
-		file = path_components[1]
+		current_directory = pathlib.Path(".")
+		for current_file in current_directory.iterdir():
+			if str(current_file).upper() == path.upper():
+				file = str(current_file)
+				break
 	else:
 		base = path_components[0]
 		file = path_components[1]
@@ -19,7 +25,7 @@ def dcm_viewer(path: str):
 	plt.show()
 	return
 
-def dcm_gui():
+def viewer_gui():
 	window = tk.Tk()
 	prompt = tk.Label(window, text="Please enter the absolute or relative path of the .dcm file", foreground = "white", background = "black", width = 50, height = 10)
 	entry = tk.Entry(window, width = 50)
@@ -29,6 +35,7 @@ def dcm_gui():
 	window.mainloop()
 	return
 
+# Private helper function (I don't know how to write private functions in python lol)
 def _on_change(window, entry):
 	path = entry.get()
 	window.destroy()
