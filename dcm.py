@@ -39,5 +39,5 @@ def viewer_gui():
 def _on_change(window, entry):
 	path = entry.get()
 	window.destroy()
-	dcm_viewer(path)
+	viewer(path)
 	return
