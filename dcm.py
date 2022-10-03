@@ -5,6 +5,7 @@ import tkinter as tk
 import pathlib
 
 # Relative path is case insensitive! (Could cause errors if there are more than one file of the same name in the current working directory)
+# No error for no file specified
 def viewer(path: str):
 	path_components = os.path.split(path)
 	if path_components[1] == "":
