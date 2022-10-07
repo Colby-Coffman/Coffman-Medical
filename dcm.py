@@ -5,6 +5,8 @@ import tkinter as tk
 import pathlib
 
 def viewer(path: str):
+	if os.path.exists(path) == False:
+		assert False, "No Non-Existent File ERROR implemented"
 	path_components = os.path.split(path)
 	if path_components[1] == "":
 		assert False, "No File ERROR not implemented"
