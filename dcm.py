@@ -18,7 +18,7 @@ def viewer(path: str):
 		for current_file in current_directory.iterdir():
 			if str(current_file).upper() == path.upper():
 				file = str(current_file)
-				found_math = True
+				found_match = True
 				break
 		if found_match != True:
 			assert False, "Relative File Not Found ERROR not implemented"
