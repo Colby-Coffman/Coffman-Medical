@@ -2,4 +2,5 @@
 
 import dcm
 
-dcm.viewer_gui()
+if __name__ == "__main__":
+  dcm.viewer_gui()
